@@ -45,9 +45,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def show
+  def show 
     @project = Project.find(params[:id])
-    @stories = Story.where(project_id: @project.id).order(:position)
+    @q = Story.where(project_id: @project.id).order(:position).ransack(params[:q])
+    @stories = @q.result
   end
 
   def update

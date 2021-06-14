@@ -3,8 +3,13 @@
   <% if @project.parent %>
     <li><%= link_to @project.parent.title, project_path(@project.parent) %></li>
   <% end %>
-
-  <table class="project-table">
+  <%= search_form_for @q, url: project_path(id: @project.id) do |f| %>
+    <div class="field">
+      <%= f.label :title_cont, "Filter by title" %>
+      <%= f.search_field :title_cont, onkeyup: "filterStories()" %>
+    </div>
+  <% end %>
+    <table class="project-table">
     <thead class="project-table__header">
       <tr class="project-table__row project-table__row--header">
         <th class="project-table__cell">Story Title</th>
