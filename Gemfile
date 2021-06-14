@@ -63,6 +63,7 @@ else
   gem 'omniauth-github'
 end
 gem "omniauth-rails_csrf_protection"
+gem "ransack", "2.4.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
